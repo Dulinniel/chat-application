@@ -1,0 +1,50 @@
+package chat.chatApplication.model;
+
+import javax.persistence.*;
+
+import java.io.Serializable;
+
+@Entity
+public class User implements Serializable // Add Serialization for Database
+{
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY) // Use a safely generated value
+  @Column(nullable = false, updatable = false) // Protect the Column
+  private Long id;
+  private String name;
+  private String email;
+  private String pubKey;
+  private String secKey;
+  private String avatarURL;
+
+  public User() {}
+
+  public User(String name, String email, String avatarURL)
+  {
+    this.name = name;
+    this.email = email;
+    this.avatarURL = avatarURL;
+  }
+
+  public User(String name, String email, String pubKey, String secKey, String avatarURL)
+  {
+    this.name = name;
+    this.email = email;
+    this.pubKey = pubKey;
+    this.secKey = secKey;
+    this.avatarURL = avatarURL;
+  }
+
+  @Override
+  public String toString()
+  {
+    return "User {\n" + 
+      "id= " + this.id +
+      ", name= '" + this.name + "'" +
+      ", email= '" + this.email + "'" +
+      ", pubKey= '" + this.pubKey + "'" +
+      ", secKey= '" + this.secKey + "'" +
+      ", avatarURL= '" + this.avatarURL + "'\n}";
+  }
+
+}

@@ -1,6 +1,6 @@
-package chat.chatApplication.model;
+package com.chat.chatApplication.model;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
 

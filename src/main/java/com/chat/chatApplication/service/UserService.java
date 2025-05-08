@@ -27,22 +27,27 @@ public class UserService
     return userRepo.save(user);
   }
 
+  @Transactional
   public List<User> findAllUser()
   {
     return userRepo.findAll();
   }
 
+  @Transactional
   public User findUser(Long id)
   {
     return userRepo.findUserById(id)
       .orElseThrow(() -> new UserNotFoundException("User id : " + id.toString() + " is not found"));
   }
 
+  @Transactional
+  @DynamicUpdate
   public User updateUser(User user)
-  {
+  { 
     return userRepo.save(user);
   }
 
+  @Transactional
   public void deleteUser(Long id)
   {
     userRepo.deleteUserById(id);

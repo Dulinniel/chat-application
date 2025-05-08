@@ -35,6 +35,56 @@ public class User implements Serializable // Add Serialization for Database
     this.avatarURL = avatarURL;
   }
 
+  public void setName(String name)
+  {
+    this.name = name;
+  }
+
+  public void setEmail(String email)
+  {
+    this.email = email;
+  }
+
+  public void setPubKey(String pubKey)
+  {
+    this.pubKey = pubKey;
+  }
+
+  public void setSecKey(String secKey)
+  {
+    this.secKey = secKey;
+  }
+
+  public void setAvatarURL(String avatarURL)
+  {
+    this.avatarURL = avatarURL;
+  }
+    
+  public String getName()
+  {
+    return this.name;
+  }
+
+  public String getEmail()
+  {
+    return this.email;
+  }
+
+  public String getPubKey()
+  {
+    return this.pubKey;
+  }
+
+  public String getSecKey()
+  {
+    return this.secKey;
+  }
+
+  public String getAvatarURL()
+  {
+    return this.avatarURL;
+  }
+
   @Override
   public String toString()
   {

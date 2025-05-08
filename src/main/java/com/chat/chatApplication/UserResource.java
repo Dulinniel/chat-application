@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import org.springframework.http.ResponseEntity;
@@ -28,7 +27,7 @@ public class UserResource
     this.userService = userService;
   }
 
-  @GetMapping
+  @GetMapping("/all")
   public ResponseEntity<List<User>> getAllUser()
   {
     List<User> users = userService.findAllUser();
@@ -43,21 +42,21 @@ public class UserResource
   }
 
   @PutMapping
-  public ResponseEntity<User> updateUser(@RequestBody User user)
+  public ResponseEntity<User> updateUser(@RequestBody User user) 
   {
     User updatedUser = userService.updateUser(user);
     return new ResponseEntity<>(updatedUser, HttpStatus.OK);
   }
 
-  @GetMapping("/{id}")
-  public ResponseEntity<User> getUserById(@PathVariable("id") Long id)
+  @GetMapping
+  public ResponseEntity<User> getUserById(@RequestBody Long id)
   {
     User user = userService.findUser(id);
     return new ResponseEntity<>(user, HttpStatus.OK);
   }
 
-  @DeleteMapping("/{id}")
-  public ResponseEntity<?> deleteUser(@PathVariable("id") Long id)
+  @DeleteMapping
+  public ResponseEntity<?> deleteUser(@RequestBody Long id)
   {
     userService.deleteUser(id);
     return new ResponseEntity<>(HttpStatus.OK);
